@@ -8,6 +8,21 @@
 
 ### [Unreleased]
 
+### [v9.4.1] - 2019-06-12
+
+- Removal of redundant SoftDelete check. [#2103], credits to [@selecod]
+
+### [v9.4.0] - 2019-06-06
+
+- Allow column search on blacklisted columns with custom filter. [#2102], fix [#2091].
+- Enable the dotted notation in the ->only() function. [#2084], credits to [@Arkhas]
+- Add tests.
+
+### [v9.3.0] - 2019-05-21
+
+- Prevent malformed UTF-8 characters in debug mode. [#2088], credits to [@drsdre].
+- Add the possibility to makeHidden() some attribute of a model. [#2085], credits to [@Arkhas].
+
 ### [v9.2.0] - 2019-05-09
 
 - Enable the dotted notation in the ->removeColumn() function. [#2082], credits to [@Arkhas].
@@ -319,7 +334,9 @@ return (new CollectionDataTable(User::all())->toJson();
 - Fix orderColumn api where related tables are not joined.
 - Fix nested with relation search and sort function.
 
-[Unreleased]: https://github.com/yajra/laravel-datatables/compare/v9.2.0...9.0
+[Unreleased]: https://github.com/yajra/laravel-datatables/compare/v9.4.0...9.0
+[v9.4.0]: https://github.com/yajra/laravel-datatables/compare/v9.3.0...v9.4.0
+[v9.3.0]: https://github.com/yajra/laravel-datatables/compare/v9.2.0...v9.3.0
 [v9.2.0]: https://github.com/yajra/laravel-datatables/compare/v9.1.1...v9.2.0
 [v9.1.1]: https://github.com/yajra/laravel-datatables/compare/v9.1.0...v9.1.1
 [v9.1.0]: https://github.com/yajra/laravel-datatables/compare/v9.0.1...v9.1.0
@@ -427,7 +444,13 @@ return (new CollectionDataTable(User::all())->toJson();
 [#2082]: https://github.com/yajra/laravel-datatables/pull/2082
 [#2079]: https://github.com/yajra/laravel-datatables/pull/2079
 [#2083]: https://github.com/yajra/laravel-datatables/pull/2083
+[#2088]: https://github.com/yajra/laravel-datatables/pull/2088
+[#2085]: https://github.com/yajra/laravel-datatables/pull/2085
+[#2102]: https://github.com/yajra/laravel-datatables/pull/2102
+[#2084]: https://github.com/yajra/laravel-datatables/pull/2084
+[#2103]: https://github.com/yajra/laravel-datatables/pull/2103
 
+[#2091]: https://github.com/yajra/laravel-datatables/issues/2091
 [#2058]: https://github.com/yajra/laravel-datatables/issues/2058
 [#1626]: https://github.com/yajra/laravel-datatables/issues/1626
 [#1617]: https://github.com/yajra/laravel-datatables/issues/1617
@@ -490,3 +513,5 @@ return (new CollectionDataTable(User::all())->toJson();
 [@Arkhas]: https://github.com/Arkhas
 [@apreiml]: https://github.com/apreiml
 [@Stokoe0990]: https://github.com/Stokoe0990
+[@drsdre]: https://github.com/drsdre
+[@selecod]: https://github.com/selecod

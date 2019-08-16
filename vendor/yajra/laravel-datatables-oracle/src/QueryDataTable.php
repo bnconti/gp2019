@@ -280,7 +280,7 @@ class QueryDataTable extends DataTableAbstract
         foreach ($columns as $index => $column) {
             $column = $this->getColumnName($index);
 
-            if (! $this->request->isColumnSearchable($index) || $this->isBlacklisted($column)) {
+            if (! $this->request->isColumnSearchable($index) || $this->isBlacklisted($column) && ! $this->hasFilterColumn($column)) {
                 continue;
             }
 
@@ -724,7 +724,12 @@ class QueryDataTable extends DataTableAbstract
      */
     protected function showDebugger(array $output)
     {
-        $output['queries'] = $this->connection->getQueryLog();
+        $query_log = $this->connection->getQueryLog();
+        array_walk_recursive($query_log, function (&$item, $key) {
+            $item = utf8_encode($item);
+        });
+
+        $output['queries'] = $query_log;
         $output['input']   = $this->request->all();
 
         return $output;
